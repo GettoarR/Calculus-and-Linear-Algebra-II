@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{mathtools}
+\usepackage[]{amsthm} %lets us use \begin{proof}
+\usepackage[]{amssymb} %gives us the character \varnothing
+
+
+
+
+\title{Calculus and Linear Algebra II \\ Real and Unitary Matrices}
+\author{Getuar Rexhepi}
+\date\today
+
+\setlength\parindent{24pt}
+
+
+\begin{document}
+\maketitle %This command prints the title based on information entered above
+
+%Section and subsection automatically number unless you put the asterisk next to them.
+
+\section {Real Matrices}
+Real Symmetric matrices have only real eigenvalues \\
+
+Ex. For \\ $$f: \mathbb{R} \to R$$  $\nabla f(a) = 0$ stationary points\\
+The Hessian
+$$ Hf = 
+\begin{bmatrix}
+\frac{\partial f(a)}{\partial^2 x_i \partial x_j} \\
+\end{bmatrix}
+$$
+$ F \in C^2  \implies  $ Hessian is a real symmetric matrix \\
+$ V_1 ... V_2 $ the orthonormal basis of eigenvectors $ h = \sum_{i=1} C_i V_1 $ \\
+$$ <H, h_F(a)\sum c_i V_i > = <H, \sum c_i h_F(a) V_i > = $$
+$$ <\sum_{j=1} C_j V_j , \sum \lambda_i c_i V_i > = \sum_{j=1} \sum_{i=1} C_j C_i \lambda_i <V_j, V_i> $$ 
+Kronecker Delta:
+$$ <V_j, V_i > = \delta_{ji} = 0 , j \neq i, 1 , j = i $$
+If all $ \lambda_i > 0$, then:
+$$ < h, Hf(a)h>  >0\forall h$$
+If all $ \lambda_i < 0$, then:
+$$ < h, Hf(a)h>  <0\forall h$$
+If some $\lambda_i >0 $ :
+There exist h for which $ < h, Hf(a) h> > 0$ \\
+If some $\lambda_i =0 $ :
+There exist h for which $ < h, Hf(a) h> = 0$ \\
+If some $\lambda_i <0 $ :
+There exist h for which $ < h, Hf(a) h> < 0$ \\
+For the above we have a saddle point.\\
+If some $ \lambda_i = 0 $ the test is inconclusive. 
+
+\section {Unitary Matrices}
+Recall : Normal matrices A can be diagonalized with orthonormal eigenvectors : 
+$$ \bar{v_1} , ... \bar{v_n}$$ with $< \bar{v_i} ,\bar{v_j} > = \delta_{ij}  $ \\
+
+Diagonalization $ \Lambda = V^{-1} A V $ \\
+$$ V= 
+\begin{bmatrix}
+\bar{v_1} \\
+\bar{v_2}\\
+\dots \\
+\bar{v_n} \\
+\end{bmatrix}
+$$
+$$ V^+ V = 
+\begin{bmatrix}
+\bar{v_1} \\
+\bar{v_2}\\
+\dots \\
+\bar{v_n} \\
+\end{bmatrix}
+\begin{bmatrix}
+\bar{v_1} |\bar {v_2} |\dots| \bar{v_n} \\
+\end{bmatrix}
+ = 
+\begin{bmatrix}
+< \bar{v_1} ,\bar{v_1}> < \bar{v_1} ,\bar{v_2} ...> < \bar{v_1} ,\bar{v_n}>\\
+< \bar{v_2} ,\bar{v_1} < \bar{v_2} ,\bar{v_2} ... >< \bar{v_2} ,\bar{v_n}>\\
+< \bar{v_n} ,\bar{v_1}> ... , ..., ...> < \bar{v_m} ,\bar{v_n} >\\
+\end{bmatrix}
+$$\\
+Definition: An nxn matrix U is called unitary if $ U^{-1} = U^+$ \\
+Properties : \\
+
+1. Unitary matrices are those that diagonalize normal matrices\\
+
+2. They preserve lengths $$ |Ux|^2 = <Ux, Ux> = <x,U^+Ux> = id= <x,x> = |x|^2 $$ 
+
+3. The preserve angles $$<Ux,Uy> = <x,U^+Uy> = <x,y>  $$
+Such transformations are called isometries (preserve geometry)\\
+
+4. U is normal 
+$$U^+ U = I = UU^+ \implies  $$  diagonalizable with an orthonormal basis of eigenvectors\\
+
+5.$$ 1 = det I = det U^+ detU = det U^* det U = |detU|^2 \implies |detU| = 1 $$
+where we have : $detU =  e^{i\phi} $, $\phi \in [0,2\pi] $ \\
+
+6. Eigenvalues ? $\bar{x}$ - eigenvector, $\lambda$ -eigenvalue\\
+$$ |\lambda|^2 |x|^2 =  |\lambda x|^2 = < \lambda x, \lambda x > = < Ux, Ux> = <x,x> = |x|^2 \neq 0 $$
+By this :
+$$ |\lambda|^2  \implies |\lambda| =1 $$
+A matrix U is unitary $ \iff $ it can be written as $ e^{iH}$, with Hermittian H.\\
+$$ H = 
+\begin{bmatrix}
+\lambda_1 , ....,...., 0\\
+0, \lambda_2 , .....,  0 \\
+0, 0, .....,  \lambda_n\\
+\end{bmatrix}
+$$
+$$ 
+e^{iH} = 
+\begin{bmatrix}
+e^{i\phi_1} ,..,...., 0\\
+0,....,e^{i\phi_2}, ... 0 \\
+0, ...., ....., e^{i\phi_n} \\
+\end{bmatrix}
+= \begin{bmatrix}
+\phi_1 ,..,...., 0\\
+0,....,\phi_2, ... 0 \\
+0, ...., ....., \phi_n \\
+\end{bmatrix}
+$$
+
+Orthonormal matrices:\\
+Def: A real nxn matrix Q is called Orthogonal if $Q^{-1} = Q^+ $. Orthogonal matrices diagonalize real symmetric matrices.\\
+$$ det Q = \pm 1$$ all eigen values are $\pm 1$ \\Orthonormal matrices represent rotations and reflections:
+$$ det Q = 1$$ Q - orientation preserving
+$$det Q = -1 $$ Q - orientation reversing.
+
+Orientation reversing = analogy to clockwise and counterclockwise\\
+
+Non-Diagonalizable matrices\\
+$ \lambda_i: geom.multiplicity < alegbraic. multiplicity $\\
+Take eigenvectors x: $$ Ax = \lambda x $$
+
+generalized Eigenvectors $$ Ay_1 = \lambda y_1+x $$
+$$  Ay_2 = \lambda y_2+y_1 $$
+$$ ... $$
+
+Jordan blocks of order n = number of eigenvalues in a diagonal
+$$ \begin{bmatrix}
+\lambda_1 ,..,...., 0\\
+0,....,\lambda_2, ... 0 \\
+0, ...., ....., \lambda_3 \\
+0, ...., ....., .....,\lambda_4 \\
+.... \\ 
+\end{bmatrix}
+$$
+
+
+
+
+
+
+ 
+
+
+
+\end{document}
